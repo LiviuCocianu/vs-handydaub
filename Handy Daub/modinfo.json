@@ -1,0 +1,13 @@
+{
+    "type": "code",
+    "modid": "handydaub",
+    "name": "Handy Daub",
+    "authors": [
+        "LivCi"
+    ],
+    "description": "Makes adding daub to wattle fences easier by automatically swapping it to the hotbar from your inventory as you click",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": ""
+    }
+}
