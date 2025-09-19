@@ -32,11 +32,9 @@ namespace Handy_Daub
              */
             api.Event.DidUseBlock += (IServerPlayer byPlayer, BlockSelection blockSel) =>
             {
+                if (byPlayer.CurrentBlockSelection == null || byPlayer.CurrentBlockSelection.Block == null) return;
+
                 BlockSelection sel = byPlayer.CurrentBlockSelection;
-
-                // Looked at block is not air (doubt it will ever reach this condition, but just making sure)
-                if (sel.Block == null) return;
-
                 string code = sel.Block.FirstCodePart();
 
                 // We only want to capture block usages related to wattle and daub
@@ -49,7 +47,7 @@ namespace Handy_Daub
 
                     // When it's not null => not all daub from hand got used
                     // When it's null => hand is empty after usage
-                    if(heldItemStack != null)
+                    if(heldSlot != null & heldItemStack != null)
                     {
                         heldItemCode = heldItemStack.Item.Code.ToString().Replace("game:", "");
                         if (!heldItemCode.StartsWith("daubraw")) return;
@@ -86,7 +84,7 @@ namespace Handy_Daub
                         // Account for held daub amount before subtracting from found daub itemstack
                         int diff = heldItemStack == null ? -1 : (heldItemStack.Item.MaxStackSize - heldSlot.StackSize);
                         // Store held amount before adding more for later
-                        int prevHeldStackSize = heldItemStack.StackSize;
+                        int prevHeldStackSize = heldItemStack == null ? 0 : heldItemStack.StackSize;
 
                         // Change base amount to account for held amount
                         if (diff > -1 && amount > diff) amount = (slot.StackSize >= diff ? diff : slot.StackSize);

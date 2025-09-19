@@ -6,7 +6,7 @@
         "LivCi"
     ],
     "description": "Makes adding daub to wattle fences easier by automatically swapping it to the hotbar from your inventory as you click",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "dependencies": {
         "game": ""
     }
