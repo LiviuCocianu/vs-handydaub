@@ -65,7 +65,7 @@ jobs:
 
       - name: Resolve version (manual runs)
         if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
-        run: echo "VERSION=$(jq -r .version ${{ env.PROJECT_NAME }}/modinfo.json)" >> "$GITHUB_ENV"
+        run: echo "VERSION=$(jq -r .version '${{ env.PROJECT_NAME }}/modinfo.json)'" >> "$GITHUB_ENV"
 
       - name: Fetch the game
         run: |
