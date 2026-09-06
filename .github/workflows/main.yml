@@ -28,7 +28,6 @@ jobs:
         uses: cake-build/cake-action@v3
         with:
           script-path: ZZCakeBuild/Program.cs
-          cake-version: tool
 
       # GENERATE SIGSTORE PROVENANCE
       - name: Attest Build Artifacts
