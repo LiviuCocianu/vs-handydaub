@@ -44,7 +44,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           tag="${GITHUB_REF_NAME#v}"
-          mod=$(jq -r .version ${{ env.PROJECT_NAME }}/modinfo.json)
+          mod=$(jq -r .version "${{ env.PROJECT_NAME }}/modinfo.json")
           if [ "$tag" != "$mod" ]; then
             echo "::error::tag $GITHUB_REF_NAME does not match modinfo.json version $mod"
             exit 1
