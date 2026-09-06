@@ -80,6 +80,7 @@ jobs:
 
       - name: Build
         run: |
+          chmod +x ./build.sh
           ./build.sh
           echo "SDK_VERSION=$(dotnet --version)" >> "$GITHUB_ENV"
 
