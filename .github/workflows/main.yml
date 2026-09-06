@@ -25,9 +25,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Run Cake Build
-        uses: cake-build/cake-action@v3
-        with:
-          script-path: ZZCakeBuild/Program.cs
+        run: dotnet run --project ZZCakeBuild/CakeBuild.csproj
 
       # GENERATE SIGSTORE PROVENANCE
       - name: Attest Build Artifacts
